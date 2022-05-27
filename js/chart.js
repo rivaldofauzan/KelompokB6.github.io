@@ -114,21 +114,17 @@ $(function() {
   var areaData = {
     labels: ["2017", "2018", "2019", "2020", "2021"],
     datasets: [{
-      label:'Peseta Tender',
-      data: [127, 142, 166, 158, 140],
+      label:'Perusahaan Tender',
+      data: [1761, 1948, 1257, 2110, 2021],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)'
       ],
       borderColor: [
         'rgba(255,99,132,1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)'
+        'rgba(255,99,132,1)',
+        'rgba(255,99,132,1)',
+        'rgba(255,99,132,1)',
+        'rgba(255,99,132,1)',
       ],
       borderWidth: 1,
       fill: true, // 3: no fill
@@ -140,7 +136,26 @@ $(function() {
       filler: {
         propagate: true
       }
-    }
+    },
+    scales: {
+      xAxes: [{
+        display: true,
+        ticks: {
+          display: true,
+        },
+      }],
+      yAxes: [{
+        display: true,
+        ticks: {
+          display: true,
+          autoSkip: false,
+          maxRotation: 0,
+          stepSize: 500,
+          min: 0,
+          max: 2500,
+        },
+      }]
+    },
   }
 
   var multiAreaData = {
