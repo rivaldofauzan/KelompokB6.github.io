@@ -208,9 +208,9 @@
               ticks: {
                 display: true,
                 min: 0,
-                max: 560,
+                max: 400,
                 callback: function(value, index, values) {
-                  return  value + '$' ;
+                  return  value + '' ;
                 },
                 autoSkip: true,
                 maxTicksLimit: 10,
