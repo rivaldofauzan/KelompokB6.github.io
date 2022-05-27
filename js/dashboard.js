@@ -3,25 +3,15 @@
   $(function() {
     if ($("#order-chart").length) {
       var areaData = {
-        labels: ["10","","","20","","","30","","","40","","", "50","","", "60","","","70"],
+        labels: ["2017","2018","2019","2020","2021"],
         datasets: [
           {
-            data: [200, 480, 700, 600, 620, 350, 380, 350, 850, "600", "650", "350", "590", "350", "620", "500", "990", "780", "650"],
-            borderColor: [
-              '#4747A1'
-            ],
-            borderWidth: 2,
-            fill: false,
-            label: "Orders"
-          },
-          {
-            data: [400, 450, 410, 500, 480, 600, 450, 550, 460, "560", "450", "700", "450", "640", "550", "650", "400", "850", "800"],
+            data: ["1761", "1948", "1257", "2110", "2021"],
             borderColor: [
               '#F09397'
             ],
             borderWidth: 2,
             fill: false,
-            label: "Downloads"
           }
         ]
       };
@@ -30,7 +20,7 @@
         maintainAspectRatio: true,
         plugins: {
           filler: {
-            propagate: false
+            propagate: true,
           }
         },
         scales: {
@@ -54,9 +44,9 @@
               display: true,
               autoSkip: false,
               maxRotation: 0,
-              stepSize: 200,
-              min: 200,
-              max: 1200,
+              stepSize: 500,
+              min: 0,
+              max: 2500,
               padding: 18,
               fontColor:"#6C7383"
             },
@@ -182,15 +172,15 @@
       var SalesChart = new Chart(SalesChartCanvas, {
         type: 'bar',
         data: {
-          labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+          labels: ["2017", "2018", "2019", "2020", "2021"],
           datasets: [{
-              label: 'Offline Sales',
-              data: [480, 230, 470, 210, 330],
+              label: 'Tender Selesai',
+              data: [290, 397, 353, 267, 388],
               backgroundColor: '#98BDFF'
             },
             {
-              label: 'Online Sales',
-              data: [400, 340, 550, 480, 170],
+              label: 'Tender Dibatalkan',
+              data: [79, 86, 75, 63, 100],
               backgroundColor: '#4B49AC'
             }
           ]
@@ -329,11 +319,11 @@
     }
     if ($("#north-america-chart").length) {
       var areaData = {
-        labels: ["Jan", "Feb", "Mar"],
+        labels: ["Tender Selesai", "Tender Dibatalkan"],
         datasets: [{
-            data: [100, 50, 50],
+            data: [1695, 403],
             backgroundColor: [
-               "#4B49AC","#FFC100", "#248AFD",
+               "#4B49AC", "#248AFD",
             ],
             borderColor: "rgba(0,0,0,0)"
           }
@@ -383,7 +373,7 @@
           ctx.textBaseline = "middle";
           ctx.fillStyle = "#13381B";
       
-          var text = "90",
+          var text = "2098",
               textX = Math.round((width - ctx.measureText(text).width) / 2),
               textY = height / 2;
       
@@ -402,11 +392,11 @@
     }
     if ($("#north-america-chart-dark").length) {
       var areaData = {
-        labels: ["Jan", "Feb", "Mar"],
+        labels: ["1695", "403"],
         datasets: [{
-            data: [100, 50, 50],
+            data: [100, 50],
             backgroundColor: [
-               "#4B49AC","#FFC100", "#248AFD",
+               "#4B49AC", "#248AFD",
             ],
             borderColor: "rgba(0,0,0,0)"
           }
@@ -456,7 +446,7 @@
           ctx.textBaseline = "middle";
           ctx.fillStyle = "#fff";
       
-          var text = "90",
+          var text = "2098",
               textX = Math.round((width - ctx.measureText(text).width) / 2),
               textY = height / 2;
       
@@ -505,14 +495,11 @@
         legendCallback: function(chart) { 
           var text = [];
           text.push('<div class="report-chart">');
-            text.push('<div class="d-flex justify-content-between mx-4 mx-xl-5 mt-3"><div class="d-flex align-items-center"><div class="mr-3" style="width:20px; height:20px; border-radius: 50%; background-color: ' + chart.data.datasets[0].backgroundColor[0] + '"></div><p class="mb-0">Offline sales</p></div>');
+            text.push('<div class="d-flex justify-content-between mx-4 mx-xl-5 mt-3"><div class="d-flex align-items-center"><div class="mr-3" style="width:20px; height:20px; border-radius: 50%; background-color: ' + chart.data.datasets[0].backgroundColor[0] + '"></div><p class="mb-0">Tender Selesai</p></div>');
             text.push('<p class="mb-0">495343</p>');
             text.push('</div>');
-            text.push('<div class="d-flex justify-content-between mx-4 mx-xl-5 mt-3"><div class="d-flex align-items-center"><div class="mr-3" style="width:20px; height:20px; border-radius: 50%; background-color: ' + chart.data.datasets[0].backgroundColor[1] + '"></div><p class="mb-0">Online sales</p></div>');
+            text.push('<div class="d-flex justify-content-between mx-4 mx-xl-5 mt-3"><div class="d-flex align-items-center"><div class="mr-3" style="width:20px; height:20px; border-radius: 50%; background-color: ' + chart.data.datasets[0].backgroundColor[1] + '"></div><p class="mb-0">Tender Dibatalkan</p></div>');
             text.push('<p class="mb-0">630983</p>');
-            text.push('</div>');
-            text.push('<div class="d-flex justify-content-between mx-4 mx-xl-5 mt-3"><div class="d-flex align-items-center"><div class="mr-3" style="width:20px; height:20px; border-radius: 50%; background-color: ' + chart.data.datasets[0].backgroundColor[2] + '"></div><p class="mb-0">Returns</p></div>');
-            text.push('<p class="mb-0">290831</p>');
             text.push('</div>');
           text.push('</div>');
           return text.join("");
@@ -530,7 +517,7 @@
           ctx.textBaseline = "middle";
           ctx.fillStyle = "#000";
       
-          var text = "76",
+          var text = "2098",
               textX = Math.round((width - ctx.measureText(text).width) / 2),
               textY = height / 2;
       
@@ -578,14 +565,11 @@
         legendCallback: function(chart) { 
           var text = [];
           text.push('<div class="report-chart">');
-            text.push('<div class="d-flex justify-content-between mx-4 mx-xl-5 mt-3"><div class="d-flex align-items-center"><div class="mr-3" style="width:20px; height:20px; border-radius: 50%; background-color: ' + chart.data.datasets[0].backgroundColor[0] + '"></div><p class="mb-0">Offline sales</p></div>');
+            text.push('<div class="d-flex justify-content-between mx-4 mx-xl-5 mt-3"><div class="d-flex align-items-center"><div class="mr-3" style="width:20px; height:20px; border-radius: 50%; background-color: ' + chart.data.datasets[0].backgroundColor[0] + '"></div><p class="mb-0">Tender Selesai</p></div>');
             text.push('<p class="mb-0">495343</p>');
             text.push('</div>');
-            text.push('<div class="d-flex justify-content-between mx-4 mx-xl-5 mt-3"><div class="d-flex align-items-center"><div class="mr-3" style="width:20px; height:20px; border-radius: 50%; background-color: ' + chart.data.datasets[0].backgroundColor[1] + '"></div><p class="mb-0">Online sales</p></div>');
+            text.push('<div class="d-flex justify-content-between mx-4 mx-xl-5 mt-3"><div class="d-flex align-items-center"><div class="mr-3" style="width:20px; height:20px; border-radius: 50%; background-color: ' + chart.data.datasets[0].backgroundColor[1] + '"></div><p class="mb-0">Tender Dibatalkan</p></div>');
             text.push('<p class="mb-0">630983</p>');
-            text.push('</div>');
-            text.push('<div class="d-flex justify-content-between mx-4 mx-xl-5 mt-3"><div class="d-flex align-items-center"><div class="mr-3" style="width:20px; height:20px; border-radius: 50%; background-color: ' + chart.data.datasets[0].backgroundColor[2] + '"></div><p class="mb-0">Returns</p></div>');
-            text.push('<p class="mb-0">290831</p>');
             text.push('</div>');
           text.push('</div>');
           return text.join("");
@@ -603,7 +587,7 @@
           ctx.textBaseline = "middle";
           ctx.fillStyle = "#fff";
       
-          var text = "76",
+          var text = "2098",
               textX = Math.round((width - ctx.measureText(text).width) / 2),
               textY = height / 2;
       
